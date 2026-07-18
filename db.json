@@ -1,0 +1,32 @@
+{
+  "users": {},
+  "predictions": [
+    {"id": 1, "round": "AVI-24071801", "mult": 2.45, "status": "live", "time": "18/07/2026, 8:00:00 PM"},
+    {"id": 2, "round": "AVI-24071802", "mult": 1.85, "status": "live", "time": "18/07/2026, 8:02:00 PM"},
+    {"id": 3, "round": "AVI-24071803", "mult": 3.20, "status": "upcoming", "time": "18/07/2026, 8:05:00 PM"},
+    {"id": 4, "round": "AVI-24071804", "mult": 5.00, "status": "upcoming", "time": "18/07/2026, 8:08:00 PM"},
+    {"id": 5, "round": "AVI-24071805", "mult": 1.50, "status": "upcoming", "time": "18/07/2026, 8:10:00 PM"}
+  ],
+  "signals": [
+    {"id": 1, "title": "Early Exit Signal", "content": "Cash out at 1.5x-2.0x in first 3 rounds. High probability of early crash after a big green.", "status": "active"},
+    {"id": 2, "title": "Green Pattern", "content": "After 3+ red rounds, expect a green multiplier above 3x. Place bet and hold for at least 3x.", "status": "active"},
+    {"id": 3, "title": "Morning Momentum", "content": "Early morning sessions (6-9 AM) show higher average multipliers. Best time for consistent wins.", "status": "active"}
+  ],
+  "tips": [
+    {"id": 1, "title": "Bankroll Management", "content": "Never bet more than 5% of your bankroll on a single round. Use the 1-3-2-6 strategy for consistent growth."},
+    {"id": 2, "title": "When to Cash Out", "content": "Set a target multiplier before each round and stick to it. Greed is the #1 reason players lose."},
+    {"id": 3, "title": "Pattern Recognition", "content": "Watch for patterns: after 3 consecutive reds (below 2x), the 4th round often goes above 3x. But never chase losses."},
+    {"id": 4, "title": "Stop Loss Limits", "content": "Set a daily loss limit (e.g., 20% of bankroll). If you hit it, stop playing for the day. Discipline is key."}
+  ],
+  "rounds": [
+    {"round": "AVI-24071795", "mult": 2.10, "time": "18/07/2026, 7:55:00 PM"},
+    {"round": "AVI-24071796", "mult": 1.30, "time": "18/07/2026, 7:56:00 PM"},
+    {"round": "AVI-24071797", "mult": 4.50, "time": "18/07/2026, 7:57:00 PM"},
+    {"round": "AVI-24071798", "mult": 0.80, "time": "18/07/2026, 7:58:00 PM"},
+    {"round": "AVI-24071799", "mult": 2.80, "time": "18/07/2026, 7:59:00 PM"},
+    {"round": "AVI-24071800", "mult": 1.95, "time": "18/07/2026, 8:00:00 PM"}
+  ],
+  "adminPass": "admin123",
+  "referrals": {},
+  "usedOtps": []
+}
