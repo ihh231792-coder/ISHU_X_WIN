@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ISHU X WIN - Aviator Predictions & Trends</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+body{background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0e1a}
+::-webkit-scrollbar-thumb{background:#2a3a6a;border-radius:3px}
+input,button,select,textarea{outline:none;font-family:inherit}
+.btn{background:linear-gradient(135deg,#f59e0b,#d97706);color:#0a0e1a;border:none;padding:10px 24px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;transition:all .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,158,11,.4)}
+.btn-sm{padding:6px 14px;font-size:12px}
+.btn-red{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.btn-red:hover{box-shadow:0 6px 20px rgba(239,68,68,.4)}
+.btn-blue{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.btn-blue:hover{box-shadow:0 6px 20px rgba(59,130,246,.4)}
+.btn-green{background:linear-gradient(135deg,#10b981,#059669)}
+.btn-green:hover{box-shadow:0 6px 20px rgba(16,185,129,.4)}
+input{background:#1a1f35;border:1px solid #2a3a6a;color:#e0e6f0;padding:10px 14px;border-radius:8px;width:100%;font-size:14px}
+input:focus{border-color:#f59e0b}
+label{display:block;font-size:13px;color:#8899bb;margin-bottom:4px}
+select{background:#1a1f35;border:1px solid #2a3a6a;color:#e0e6f0;padding:10px 14px;border-radius:8px;width:100%;font-size:14px}
+.toast{position:fixed;top:20px;right:20px;background:#1a1f35;border:2px solid;padding:14px 20px;border-radius:12px;font-size:14px;font-weight:600;z-index:9999;transform:translateX(120%);transition:transform .4s;max-width:360px}
+.toast.show{transform:translateX(0)}
+.toast.success{border-color:#10b981;color:#10b981}
+.toast.error{border-color:#ef4444;color:#ef4444}
+.toast.info{border-color:#3b82f6;color:#3b82f6}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:900;display:none;justify-content:center;align-items:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal{background:#1a1f35;border-radius:16px;padding:30px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto;border:1px solid #2a3a6a}
+.modal h2{color:#f59e0b;font-size:22px;margin-bottom:16px}
+.modal p{color:#8899bb;font-size:13px;margin-bottom:16px}
+/* Loading screen */
+#loadingScreen{position:fixed;inset:0;z-index:10000;background:#0a0e1a;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity .8s}
+#loadingScreen.hidden{opacity:0;pointer-events:none}
+.plane-anim{font-size:60px;animation:bounce 1.2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+.loading-bar{width:200px;height:4px;background:#1a1f35;border-radius:2px;margin-top:20px;overflow:hidden}
+.loading-bar-inner{height:100%;width:0;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:2px;animation:fillBar 2.5s ease forwards}
+@keyframes fillBar{to{width:100%}}
+.loading-text{color:#8899bb;font-size:14px;margin-top:12px}
+/* Auth pages */
+.auth-page{display:none;min-height:100vh;justify-content:center;align-items:center;padding:20px;background:radial-gradient(ellipse at top,#1a1f35,#0a0e1a)}
+.auth-page.active{display:flex}
+.auth-box{background:#1a1f35;border-radius:20px;padding:40px;width:100%;max-width:420px;border:1px solid #2a3a6a;position:relative;overflow:hidden}
+.auth-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(245,158,11,.05),transparent,rgba(245,158,11,.05),transparent);animation:rotate 6s linear infinite}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.auth-inner{position:relative;z-index:1}
+.auth-logo{text-align:center;margin-bottom:30px}
+.auth-logo h1{font-size:32px;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.auth-logo p{color:#8899bb;font-size:12px;margin-top:4px}
+.auth-box .form-group{margin-bottom:16px}
+.auth-box .btn{width:100%;padding:12px}
+.auth-switch{text-align:center;margin-top:16px;font-size:13px;color:#8899bb}
+.auth-switch a{color:#f59e0b;cursor:pointer;text-decoration:none}
+.auth-switch a:hover{text-decoration:underline}
+.otp-group{display:flex;gap:8px}
+.otp-group input{text-align:center;font-size:20px;font-weight:700;letter-spacing:4px}
+/* Dashboard */
+.dashboard{display:none;padding:0}
+.dashboard.active{display:block}
+.topbar{background:#1a1f35;border-bottom:1px solid #2a3a6a;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar .logo{font-size:20px;font-weight:800;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar .logo span{font-size:10px;display:block;-webkit-text-fill-color:#8899bb;font-weight:400}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-right .user-name{font-size:13px;color:#8899bb}
+.topbar-right .user-name strong{color:#e0e6f0}
+.dash-body{display:flex;min-height:calc(100vh - 56px)}
+.sidebar{width:220px;background:#131829;border-right:1px solid #2a3a6a;padding:16px 0;flex-shrink:0}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#8899bb;text-decoration:none;font-size:14px;transition:all .3s;border-left:3px solid transparent}
+.sidebar a:hover,.sidebar a.active{background:#1a1f35;color:#e0e6f0;border-left-color:#f59e0b}
+.sidebar a i{width:20px;text-align:center}
+.main-content{flex:1;padding:24px;overflow-y:auto}
+.page{display:none}
+.page.active{display:block}
+.page h2{font-size:22px;font-weight:700;margin-bottom:4px}
+.page .subtitle{color:#8899bb;font-size:13px;margin-bottom:20px}
+/* Prediction cards */
+.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px}
+.pred-card{background:#1a1f35;border-radius:12px;padding:20px;border:1px solid #2a3a6a;transition:all .3s}
+.pred-card:hover{border-color:#f59e0b;transform:translateY(-2px)}
+.pred-card .pred-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.pred-card .pred-badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+.pred-card .pred-badge.live{background:rgba(239,68,68,.2);color:#ef4444;animation:pulse 1.5s infinite}
+.pred-card .pred-badge.upcoming{background:rgba(245,158,11,.2);color:#f59e0b}
+.pred-card .pred-badge.done{background:rgba(16,185,129,.2);color:#10b981}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.pred-card .pred-mult{font-size:36px;font-weight:800;color:#f59e0b;text-align:center;padding:12px 0}
+.pred-card .pred-detail{font-size:12px;color:#8899bb;display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid #2a3a6a}
+/* Stats */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:24px}
+.stat-card{background:#1a1f35;border-radius:12px;padding:18px;border:1px solid #2a3a6a;text-align:center}
+.stat-card .stat-value{font-size:28px;font-weight:800;color:#f59e0b}
+.stat-card .stat-label{font-size:12px;color:#8899bb;margin-top:4px}
+/* Chart placeholder */
+.chart-box{background:#1a1f35;border-radius:12px;padding:20px;border:1px solid #2a3a6a;margin-bottom:24px;min-height:200px;position:relative;overflow:hidden}
+.chart-box h3{font-size:14px;color:#8899bb;margin-bottom:12px}
+.chart-bars{display:flex;align-items:flex-end;gap:4px;height:140px;padding-top:10px}
+.chart-bar{flex:1;background:linear-gradient(to top,#f59e0b,#ef4444);border-radius:3px 3px 0 0;min-height:2px;transition:height .5s;position:relative}
+.chart-bar:hover{opacity:.8}
+.chart-bar .bar-label{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:#8899bb;white-space:nowrap}
+/* Table */
+.table-wrap{background:#1a1f35;border-radius:12px;border:1px solid #2a3a6a;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#131829;color:#8899bb;padding:12px 14px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:10px 14px;border-top:1px solid #2a3a6a;color:#c0c8d8}
+tr:hover td{background:rgba(245,158,11,.05)}
+.status-badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.status-badge.green{background:rgba(16,185,129,.2);color:#10b981}
+.status-badge.red{background:rgba(239,68,68,.2);color:#ef4444}
+.status-badge.yellow{background:rgba(245,158,11,.2);color:#f59e0b}
+/* Admin */
+.admin-login-btn{position:fixed;bottom:20px;left:20px;z-index:50;background:rgba(26,31,53,.8);border:1px solid #2a3a6a;border-radius:8px;padding:8px 14px;color:#8899bb;font-size:12px;cursor:pointer;transition:all .3s}
+.admin-login-btn:hover{background:#2a3a6a;color:#e0e6f0}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:20px;background:#131829;border-radius:10px;padding:4px;max-width:fit-content}
+.tab-btn{padding:8px 18px;border:none;background:transparent;color:#8899bb;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:all .3s}
+.tab-btn.active{background:#f59e0b;color:#0a0e1a}
+.tab-btn:hover:not(.active){background:#1a1f35}
+/* Responsive */
+@media(max-width:768px){
+.sidebar{display:none;position:fixed;inset:0;z-index:200;width:100%;background:#131829;padding-top:60px}
+.sidebar.open{display:block}
+.dash-body{flex-direction:column}
+.main-content{padding:16px}
+.pred-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.topbar{padding:12px 16px}
+.auth-box{padding:24px}
+.modal{padding:20px}
+}
+.menu-toggle{display:none;background:none;border:none;color:#e0e6f0;font-size:24px;cursor:pointer}
+@media(max-width:768px){.menu-toggle{display:block}}
+/* Profile dropdown */
+.profile-dropdown{position:relative}
+.profile-dropdown .dropdown-menu{position:absolute;top:100%;right:0;background:#1a1f35;border:1px solid #2a3a6a;border-radius:10px;padding:8px 0;min-width:160px;display:none;z-index:300}
+.profile-dropdown .dropdown-menu.show{display:block}
+.profile-dropdown .dropdown-menu a{display:block;padding:8px 16px;color:#8899bb;text-decoration:none;font-size:13px;cursor:pointer}
+.profile-dropdown .dropdown-menu a:hover{background:#131829;color:#e0e6f0}
+.profile-dropdown .dropdown-menu .divider{border-top:1px solid #2a3a6a;margin:4px 0}
+/* Plane trail animation */
+.plane-trail{position:relative;height:2px;background:linear-gradient(90deg,transparent,#f59e0b,transparent);width:100%;animation:flyTrail 3s ease-in-out infinite}
+@keyframes flyTrail{0%{transform:translateX(-100%);opacity:0}50%{opacity:1}100%{transform:translateX(100%);opacity:0}}
+</style>
+</head>
+<body>
+
+<div id="loadingScreen">
+  <div class="plane-anim">&#9992;&#65039;</div>
+  <div class="loading-bar"><div class="loading-bar-inner"></div></div>
+  <div class="loading-text">Loading ISHU X WIN...</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<!-- ============ AUTH PAGES ============ -->
+<div id="authPage" class="auth-page active">
+  <div class="auth-box">
+    <div class="auth-inner">
+      <div class="auth-logo">
+        <h1>ISHU X WIN</h1>
+        <p>Aviator Predictions &bull; Live Trends &bull; Signals</p>
+      </div>
+      <div id="loginForm">
+        <div class="form-group">
+          <label>Username / Email / Phone</label>
+          <input type="text" id="loginUser" placeholder="Enter username or email or phone">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPass" placeholder="Enter password">
+        </div>
+        <button class="btn" onclick="doLogin()">Login</button>
+        <div class="auth-switch">Don't have account? <a onclick="showRegister()">Register here</a></div>
+      </div>
+      <div id="registerForm" style="display:none">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="regUser" placeholder="Choose a username">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="Your email address">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" id="regPhone" placeholder="e.g. +91XXXXXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="regPass" placeholder="Create password">
+        </div>
+        <div class="form-group">
+          <label>Referral Code (optional)</label>
+          <input type="text" id="regRef" placeholder="Referral code">
+        </div>
+        <div id="otpSection" style="display:none">
+          <div class="form-group">
+            <label>Enter OTP sent to your email & phone</label>
+            <div class="otp-group">
+              <input type="text" id="regOtp" placeholder="000000" maxlength="6">
+            </div>
+          </div>
+          <button class="btn btn-green" onclick="verifyOtp()">Verify & Register</button>
+          <div class="auth-switch"><a onclick="resendOtp()">Resend OTP</a></div>
+        </div>
+        <button id="sendOtpBtn" class="btn btn-blue" onclick="sendOtp()">Send OTP</button>
+        <div class="auth-switch">Already have account? <a onclick="showLogin()">Login here</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Login Modal -->
+<div id="adminLoginModal" class="modal-overlay">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <p>Authorized personnel only</p>
+    <div class="form-group">
+      <label>Admin Username</label>
+      <input type="text" id="adminLoginUser" placeholder="Admin username">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="adminLoginPass" placeholder="Admin password">
+    </div>
+    <button class="btn btn-red" onclick="doAdminLogin()">Login as Admin</button>
+    <div class="auth-switch" style="margin-top:12px"><a onclick="closeModal('adminLoginModal')">Back</a></div>
+  </div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div id="dashboard" class="dashboard">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="logo">ISHU X WIN<span>DEV BY ISHU</span></div>
+    </div>
+    <div class="topbar-right">
+      <span class="user-name">Welcome, <strong id="dashUserName">User</strong></span>
+      <div class="profile-dropdown">
+        <button class="btn btn-sm" onclick="toggleProfileDropdown()">Profile &#9660;</button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a onclick="showProfile()">My Profile</a>
+          <a onclick="showChangePass()">Change Password</a>
+          <div class="divider"></div>
+          <a onclick="doLogout()" style="color:#ef4444">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dash-body">
+    <nav class="sidebar" id="sidebar">
+      <a class="active" onclick="navigate('dashboardPage',this)"><i>&#9672;</i> Dashboard</a>
+      <a onclick="navigate('predictionsPage',this)"><i>&#9654;</i> Live Predictions</a>
+      <a onclick="navigate('historyPage',this)"><i>&#9776;</i> Round History</a>
+      <a onclick="navigate('signalsPage',this)"><i>&#9889;</i> Signals</a>
+      <a onclick="navigate('tipsPage',this)"><i>&#128161;</i> Tips & Strategy</a>
+      <a onclick="showProfile()"><i>&#128100;</i> My Profile</a>
+      <a onclick="navigate('referPage',this)"><i>&#128279;</i> Refer & Earn</a>
+      <div style="border-top:1px solid #2a3a6a;margin:16px 16px 0;padding-top:12px">
+        <a onclick="doLogout()" style="color:#ef4444"><i>&#8594;</i> Logout</a>
+      </div>
+    </nav>
+    <div class="main-content">
+      <!-- Dashboard Page -->
+      <div id="dashboardPage" class="page active">
+        <h2>Dashboard</h2>
+        <p class="subtitle">Welcome to ISHU X WIN - Your Aviator prediction hub</p>
+        <div class="plane-trail" style="margin-bottom:20px"></div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-value" id="statPredictions">0</div><div class="stat-label">Predictions Today</div></div>
+          <div class="stat-card"><div class="stat-value" style="color:#10b981" id="statAccuracy">0%</div><div class="stat-label">Accuracy Rate</div></div>
+          <div class="stat-card"><div class="stat-value" style="color:#3b82f6" id="statMembers">0</div><div class="stat-label">Total Members</div></div>
+          <div class="stat-card"><div class="stat-value" style="color:#ef4444" id="statLive">0</div><div class="stat-label">Live Now</div></div>
+        </div>
+        <div class="chart-box">
+          <h3>&#128200; Multiplier Trend (Last 20 Rounds)</h3>
+          <div class="chart-bars" id="trendChart"></div>
+        </div>
+        <div class="pred-grid" id="dashPredictions"></div>
+      </div>
+      <!-- Predictions Page -->
+      <div id="predictionsPage" class="page">
+        <h2>Live Predictions</h2>
+        <p class="subtitle">Real-time Aviator round predictions and analysis</p>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchPredTab('all',this)">All</button>
+          <button class="tab-btn" onclick="switchPredTab('live',this)">Live</button>
+          <button class="tab-btn" onclick="switchPredTab('upcoming',this)">Upcoming</button>
+          <button class="tab-btn" onclick="switchPredTab('done',this)">Completed</button>
+        </div>
+        <div class="pred-grid" id="predGrid"></div>
+      </div>
+      <!-- History Page -->
+      <div id="historyPage" class="page">
+        <h2>Round History</h2>
+        <p class="subtitle">Complete history of Aviator rounds and results</p>
+        <div class="chart-box">
+          <h3>&#128202; Multiplier Distribution</h3>
+          <div class="chart-bars" id="histChart"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Round</th><th>Multiplier</th><th>Time</th><th>Status</th></tr></thead>
+            <tbody id="histTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Signals Page -->
+      <div id="signalsPage" class="page">
+        <h2>Signals</h2>
+        <p class="subtitle">Exclusive Aviator signals for premium members</p>
+        <div class="pred-grid" id="signalsGrid"></div>
+      </div>
+      <!-- Tips Page -->
+      <div id="tipsPage" class="page">
+        <h2>Tips & Strategy</h2>
+        <p class="subtitle">Pro strategies to maximize your Aviator winnings</p>
+        <div class="pred-grid" id="tipsGrid"></div>
+      </div>
+      <!-- Refer Page -->
+      <div id="referPage" class="page">
+        <h2>Refer & Earn</h2>
+        <p class="subtitle">Invite friends and earn rewards</p>
+        <div style="background:#1a1f35;border-radius:12px;padding:24px;border:1px solid #2a3a6a;text-align:center;max-width:500px;margin:0 auto">
+          <div style="font-size:48px;margin-bottom:12px">&#128279;</div>
+          <h3 style="color:#f59e0b;margin-bottom:8px">Your Referral Link</h3>
+          <p style="color:#8899bb;font-size:13px;margin-bottom:16px">Share this link with friends. You get <strong style="color:#f59e0b">10%</strong> of their earnings!</p>
+          <div style="display:flex;gap:8px">
+            <input type="text" id="referLink" readonly style="flex:1;text-align:center;font-weight:700;font-size:13px">
+            <button class="btn btn-sm" onclick="copyReferral()">Copy</button>
+          </div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #2a3a6a">
+            <div class="stat-card" style="border:none;background:transparent;padding:0">
+              <div class="stat-value" id="referEarnings" style="font-size:24px">&#8377;0</div>
+              <div class="stat-label">Total Referral Earnings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Profile Page -->
+      <div id="profilePage" class="page">
+        <h2>My Profile</h2>
+        <p class="subtitle">Your account details</p>
+        <div style="background:#1a1f35;border-radius:12px;padding:24px;border:1px solid #2a3a6a;max-width:500px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div><label>Username</label><div style="font-weight:700;font-size:15px" id="profUser">-</div></div>
+            <div><label>Email</label><div style="font-size:15px" id="profEmail">-</div></div>
+            <div><label>Phone</label><div style="font-size:15px" id="profPhone">-</div></div>
+            <div><label>Joined</label><div style="font-size:15px" id="profJoined">-</div></div>
+          </div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #2a3a6a;display:flex;gap:8px">
+            <button class="btn btn-blue btn-sm" onclick="showChangePass()">Change Password</button>
+          </div>
+        </div>
+      </div>
+      <!-- Change Password Modal -->
+      <div id="changePassModal" class="modal-overlay">
+        <div class="modal">
+          <h2>Change Password</h2>
+          <div class="form-group"><label>Current Password</label><input type="password" id="cpOld"></div>
+          <div class="form-group"><label>New Password</label><input type="password" id="cpNew"></div>
+          <div class="form-group"><label>Confirm Password</label><input type="password" id="cpConfirm"></div>
+          <button class="btn" onclick="doChangePass()">Update Password</button>
+          <div class="auth-switch" style="margin-top:12px"><a onclick="closeModal('changePassModal')">Cancel</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN DASHBOARD ============ -->
+<div id="adminDashboard" class="dashboard" style="display:none">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="logo">ISHU X WIN<span>ADMIN PANEL</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:13px;color:#8899bb">Admin: <strong id="adminName">Admin</strong></span>
+      <button class="btn btn-sm btn-red" onclick="doAdminLogout()">Logout</button>
+    </div>
+  </div>
+  <div class="dash-body">
+    <nav class="sidebar" id="adminSidebar">
+      <a class="active" onclick="adminNav('adminUsersPage',this)"><i>&#128101;</i> Users</a>
+      <a onclick="adminNav('adminPredictionsPage',this)"><i>&#9654;</i> Predictions</a>
+      <a onclick="adminNav('adminSignalsPage',this)"><i>&#9889;</i> Signals</a>
+      <a onclick="adminNav('adminTipsPage',this)"><i>&#128161;</i> Tips</a>
+      <a onclick="adminNav('adminHistoryPage',this)"><i>&#9776;</i> Round History</a>
+      <a onclick="adminNav('adminReportsPage',this)"><i>&#128200;</i> Reports</a>
+      <a onclick="adminNav('adminSettingsPage',this)"><i>&#9881;</i> Settings</a>
+    </nav>
+    <div class="main-content">
+      <div id="adminUsersPage" class="page active">
+        <h2>Users Management</h2>
+        <p class="subtitle">Manage all registered users</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Username</th><th>Email</th><th>Phone</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="adminUsersTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="adminPredictionsPage" class="page">
+        <h2>Manage Predictions</h2>
+        <p class="subtitle">Add, edit or remove predictions</p>
+        <button class="btn btn-sm btn-green" style="margin-bottom:16px" onclick="showAddPrediction()">+ Add Prediction</button>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Round</th><th>Multiplier</th><th>Status</th><th>Time</th><th>Actions</th></tr></thead>
+            <tbody id="adminPredTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="adminSignalsPage" class="page">
+        <h2>Manage Signals</h2>
+        <p class="subtitle">Exclusive signals for premium members</p>
+        <button class="btn btn-sm btn-green" style="margin-bottom:16px" onclick="showAddSignal()">+ Add Signal</button>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Content</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="adminSignalsTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="adminTipsPage" class="page">
+        <h2>Manage Tips</h2>
+        <p class="subtitle">Tips & strategy content</p>
+        <button class="btn btn-sm btn-green" style="margin-bottom:16px" onclick="showAddTip()">+ Add Tip</button>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Content</th><th>Actions</th></tr></thead>
+            <tbody id="adminTipsTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="adminHistoryPage" class="page">
+        <h2>Round History</h2>
+        <p class="subtitle">All completed rounds</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Round</th><th>Multiplier</th><th>Time</th></tr></thead>
+            <tbody id="adminHistoryTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="adminReportsPage" class="page">
+        <h2>Reports & Analytics</h2>
+        <p class="subtitle">Platform statistics</p>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-value" id="adminTotalUsers">0</div><div class="stat-label">Total Users</div></div>
+          <div class="stat-card"><div class="stat-value" id="adminTotalPredictions">0</div><div class="stat-label">Total Predictions</div></div>
+          <div class="stat-card"><div class="stat-value" id="adminTotalSignals">0</div><div class="stat-label">Total Signals</div></div>
+          <div class="stat-card"><div class="stat-value" style="color:#10b981" id="adminAvgAccuracy">0%</div><div class="stat-label">Avg Accuracy</div></div>
+        </div>
+      </div>
+      <div id="adminSettingsPage" class="page">
+        <h2>Settings</h2>
+        <p class="subtitle">Platform configuration</p>
+        <div style="background:#1a1f35;border-radius:12px;padding:24px;border:1px solid #2a3a6a;max-width:500px">
+          <div class="form-group"><label>Admin Password</label><input type="password" id="adminSetPass" value="admin123"></div>
+          <div class="form-group"><label>New Password</label><input type="password" id="adminSetNewPass"></div>
+          <button class="btn btn-sm" onclick="updateAdminSettings()">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Prediction Modal -->
+<div id="addPredModal" class="modal-overlay">
+  <div class="modal">
+    <h2>Add Prediction</h2>
+    <div class="form-group"><label>Round Number</label><input type="text" id="apRound" placeholder="e.g. AVI-12345"></div>
+    <div class="form-group"><label>Predicted Multiplier</label><input type="number" id="apMult" step="0.01" placeholder="e.g. 2.50"></div>
+    <div class="form-group"><label>Status</label>
+      <select id="apStatus"><option value="live">Live</option><option value="upcoming">Upcoming</option><option value="done">Completed</option></select>
+    </div>
+    <button class="btn" onclick="savePrediction()">Save</button>
+    <div class="auth-switch" style="margin-top:12px"><a onclick="closeModal('addPredModal')">Cancel</a></div>
+  </div>
+</div>
+
+<!-- Add Signal Modal -->
+<div id="addSignalModal" class="modal-overlay">
+  <div class="modal">
+    <h2>Add Signal</h2>
+    <div class="form-group"><label>Title</label><input type="text" id="asTitle" placeholder="Signal title"></div>
+    <div class="form-group"><label>Content</label><textarea id="asContent" style="background:#1a1f35;border:1px solid #2a3a6a;color:#e0e6f0;padding:10px 14px;border-radius:8px;width:100%;font-size:14px;min-height:80px;resize:vertical" placeholder="Signal details"></textarea></div>
+    <div class="form-group"><label>Status</label>
+      <select id="asStatus"><option value="active">Active</option><option value="inactive">Inactive</option></select>
+    </div>
+    <button class="btn" onclick="saveSignal()">Save</button>
+    <div class="auth-switch" style="margin-top:12px"><a onclick="closeModal('addSignalModal')">Cancel</a></div>
+  </div>
+</div>
+
+<!-- Add Tip Modal -->
+<div id="addTipModal" class="modal-overlay">
+  <div class="modal">
+    <h2>Add Tip</h2>
+    <div class="form-group"><label>Title</label><input type="text" id="atTitle" placeholder="Tip title"></div>
+    <div class="form-group"><label>Content</label><textarea id="atContent" style="background:#1a1f35;border:1px solid #2a3a6a;color:#e0e6f0;padding:10px 14px;border-radius:8px;width:100%;font-size:14px;min-height:80px;resize:vertical" placeholder="Tip details"></textarea></div>
+    <button class="btn" onclick="saveTip()">Save</button>
+    <div class="auth-switch" style="margin-top:12px"><a onclick="closeModal('addTipModal')">Cancel</a></div>
+  </div>
+</div>
+
+<script>
+// ============ DB & STATE ============
+var DB = { users:{}, predictions:[], signals:[], tips:[], rounds:[], adminPass:'admin123', referrals:{}, usedOtps:[] };
+var currentUser = null;
+var isAdmin = false;
+var _editPredId = null, _editSignalId = null, _editTipId = null;
+var _pendingOtp = null;
+
+// Load from localStorage
+function loadDB(){
+  try{
+    var d = localStorage.getItem('ishuxwin_db');
+    if(d){ var parsed = JSON.parse(d); Object.assign(DB, parsed); }
+  }catch(e){}
+  if(!DB.users) DB.users={};
+  if(!DB.predictions) DB.predictions=[];
+  if(!DB.signals) DB.signals=[];
+  if(!DB.tips) DB.tips=[];
+  if(!DB.rounds) DB.rounds=[];
+  if(!DB.referrals) DB.referrals={};
+  if(!DB.usedOtps) DB.usedOtps=[];
+  // Seed admin
+  DB.adminPass = DB.adminPass || 'admin123';
+  // Seed sample data
+  if(DB.predictions.length===0) seedSampleData();
+  saveDB();
+}
+function saveDB(){
+  localStorage.setItem('ishuxwin_db', JSON.stringify(DB));
+  // Also sync to server if available
+  try{
+    var x = new XMLHttpRequest();
+    x.open('POST','/api/save',true);
+    x.setRequestHeader('Content-Type','application/json');
+    x.send(JSON.stringify(DB));
+  }catch(e){}
+}
+
+function seedSampleData(){
+  DB.predictions = [
+    { id:1, round:'AVI-24071801', mult:2.45, status:'live', time:new Date().toLocaleString('en-IN') },
+    { id:2, round:'AVI-24071802', mult:1.85, status:'live', time:new Date().toLocaleString('en-IN') },
+    { id:3, round:'AVI-24071803', mult:3.20, status:'upcoming', time:new Date(Date.now()+120000).toLocaleString('en-IN') },
+    { id:4, round:'AVI-24071804', mult:5.00, status:'upcoming', time:new Date(Date.now()+240000).toLocaleString('en-IN') },
+    { id:5, round:'AVI-24071805', mult:1.50, status:'upcoming', time:new Date(Date.now()+360000).toLocaleString('en-IN') },
+  ];
+  DB.rounds = [
+    { round:'AVI-24071795', mult:2.10, time:new Date(Date.now()-300000).toLocaleString('en-IN') },
+    { round:'AVI-24071796', mult:1.30, time:new Date(Date.now()-240000).toLocaleString('en-IN') },
+    { round:'AVI-24071797', mult:4.50, time:new Date(Date.now()-180000).toLocaleString('en-IN') },
+    { round:'AVI-24071798', mult:0.80, time:new Date(Date.now()-120000).toLocaleString('en-IN') },
+    { round:'AVI-24071799', mult:2.80, time:new Date(Date.now()-60000).toLocaleString('en-IN') },
+    { round:'AVI-24071800', mult:1.95, time:new Date().toLocaleString('en-IN') },
+  ];
+  DB.signals = [
+    { id:1, title:'Early Exit Signal', content:'Cash out at 1.5x-2.0x in first 3 rounds. High probability of early crash.', status:'active' },
+    { id:2, title:'Green Pattern', content:'After 3+ red rounds, expect a green multiplier above 3x. Place bet and hold.', status:'active' },
+  ];
+  DB.tips = [
+    { id:1, title:'Bankroll Management', content:'Never bet more than 5% of your bankroll on a single round. Use the 1-3-2-6 strategy for consistent growth.' },
+    { id:2, title:'When to Cash Out', content:'Set a target multiplier before each round and stick to it. Greed is the #1 reason players lose.' },
+  ];
+}
+
+// ============ TOAST ============
+var _toastTimer = null;
+function showToast(msg, type){
+  type = type || 'success';
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type;
+  setTimeout(function(){ t.classList.add('show'); },10);
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3500);
+}
+
+// ============ MODAL ============
+function closeModal(id){ document.getElementById(id).classList.remove('active'); }
+
+// ============ AUTH ============
+function showRegister(){
+  document.getElementById('loginForm').style.display='none';
+  document.getElementById('registerForm').style.display='block';
+  document.getElementById('otpSection').style.display='none';
+  document.getElementById('sendOtpBtn').style.display='block';
+}
+function showLogin(){
+  document.getElementById('loginForm').style.display='block';
+  document.getElementById('registerForm').style.display='none';
+}
+
+function sendOtp(){
+  var user = document.getElementById('regUser').value.trim();
+  var email = document.getElementById('regEmail').value.trim();
+  var phone = document.getElementById('regPhone').value.trim();
+  var pass = document.getElementById('regPass').value;
+  if(!user||!email||!phone||!pass){ showToast('Please fill all fields','error'); return; }
+  if(DB.users[user]){ showToast('Username already taken','error'); return; }
+  if(user.length<3){ showToast('Username must be at least 3 characters','error'); return; }
+  if(pass.length<4){ showToast('Password must be at least 4 characters','error'); return; }
+  // Generate OTP
+  _pendingOtp = { user:user, email:email, phone:phone, pass:pass, code:String(Math.floor(100000+Math.random()*900000)), ref:document.getElementById('regRef').value.trim() };
+  console.log('OTP for '+email+'/'+phone+': '+_pendingOtp.code);
+  showToast('OTP sent to '+email+' & '+phone+' (demo: '+_pendingOtp.code+')','info');
+  document.getElementById('otpSection').style.display='block';
+  document.getElementById('sendOtpBtn').style.display='none';
+}
+
+function resendOtp(){
+  if(!_pendingOtp){ showToast('No pending registration','error'); return; }
+  _pendingOtp.code = String(Math.floor(100000+Math.random()*900000));
+  console.log('New OTP: '+_pendingOtp.code);
+  showToast('New OTP sent: '+_pendingOtp.code,'info');
+}
+
+function verifyOtp(){
+  var code = document.getElementById('regOtp').value.trim();
+  if(!_pendingOtp){ showToast('No pending registration. Start again.','error'); return; }
+  if(code !== _pendingOtp.code){ showToast('Invalid OTP. Try again.','error'); return; }
+  // Register user
+  var u = _pendingOtp;
+  DB.users[u.user] = {
+    email: u.email, phone: u.phone, pass: u.pass,
+    joined: new Date().toLocaleString('en-IN'),
+    balance: 0, referrals: [], role:'user', active:true
+  };
+  // Handle referral
+  if(u.ref && DB.users[u.ref]){
+    if(!DB.referrals[u.ref]) DB.referrals[u.ref]=[];
+    DB.referrals[u.ref].push(u.user);
+  }
+  saveDB();
+  showToast('Registration successful! Please login.','success');
+  _pendingOtp = null;
+  document.getElementById('regOtp').value = '';
+  showLogin();
+}
+
+function doLogin(){
+  var user = document.getElementById('loginUser').value.trim();
+  var pass = document.getElementById('loginPass').value;
+  if(!user||!pass){ showToast('Please enter username and password','error'); return; }
+  // Find user by username, email or phone
+  var foundUser = null;
+  for(var k in DB.users){
+    var u = DB.users[k];
+    if(k===user || u.email===user || u.phone===user){
+      foundUser = { key:k, data:u };
+      break;
+    }
+  }
+  if(!foundUser){ showToast('User not found','error'); return; }
+  if(foundUser.data.pass !== pass){ showToast('Wrong password','error'); return; }
+  if(foundUser.data.active === false){ showToast('Account is disabled. Contact admin.','error'); return; }
+  currentUser = foundUser.key;
+  enterDashboard(currentUser);
+}
+
+function enterDashboard(user){
+  document.getElementById('authPage').classList.remove('active');
+  document.getElementById('dashboard').classList.add('active');
+  document.getElementById('dashUserName').textContent = user;
+  refreshDashboard();
+}
+
+function doLogout(){
+  if(!confirm('Logout?')) return;
+  currentUser = null;
+  document.getElementById('dashboard').classList.remove('active');
+  document.getElementById('authPage').classList.add('active');
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+// ============ ADMIN AUTH ============
+function openAdminLogin(){ document.getElementById('adminLoginModal').classList.add('active'); }
+
+function doAdminLogin(){
+  var user = document.getElementById('adminLoginUser').value.trim();
+  var pass = document.getElementById('adminLoginPass').value;
+  if(!user||!pass){ showToast('Enter admin credentials','error'); return; }
+  if(user!=='admin' || pass!==DB.adminPass){ showToast('Invalid admin credentials','error'); return; }
+  isAdmin = true;
+  document.getElementById('adminLoginModal').classList.remove('active');
+  document.getElementById('authPage').classList.remove('active');
+  document.getElementById('dashboard').classList.remove('active');
+  document.getElementById('adminDashboard').style.display='block';
+  document.getElementById('adminName').textContent = user;
+  refreshAdmin();
+  showToast('Welcome Admin!','success');
+}
+
+function doAdminLogout(){
+  if(!confirm('Logout from admin panel?')) return;
+  isAdmin = false;
+  document.getElementById('adminDashboard').style.display='none';
+  document.getElementById('authPage').classList.add('active');
+  document.getElementById('adminLoginUser').value='';
+  document.getElementById('adminLoginPass').value='';
+}
+
+// ============ NAVIGATION ============
+function navigate(pageId, el){
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById(pageId).classList.add('active');
+  document.querySelectorAll('.sidebar a').forEach(function(a){ a.classList.remove('active'); });
+  if(el) el.classList.add('active');
+  document.getElementById('sidebar').classList.remove('open');
+  // Refresh specific pages
+  if(pageId==='predictionsPage') renderPredictions('all');
+  if(pageId==='historyPage') renderHistory();
+  if(pageId==='signalsPage') renderSignals();
+  if(pageId==='tipsPage') renderTips();
+  if(pageId==='referPage') renderRefer();
+  if(pageId==='dashboardPage') refreshDashboard();
+}
+
+function toggleSidebar(){ document.getElementById('sidebar').classList.toggle('open'); }
+
+function toggleProfileDropdown(){
+  document.getElementById('profileDropdown').classList.toggle('show');
+}
+// Close dropdown on click outside
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.profile-dropdown')) document.getElementById('profileDropdown').classList.remove('show');
+});
+
+// ============ DASHBOARD ============
+function refreshDashboard(){
+  var live = DB.predictions.filter(function(p){ return p.status==='live'; });
+  var upc = DB.predictions.filter(function(p){ return p.status==='upcoming'; });
+  var done = DB.predictions.filter(function(p){ return p.status==='done'; });
+  var totalUsers = Object.keys(DB.users).length;
+  document.getElementById('statPredictions').textContent = DB.predictions.length;
+  document.getElementById('statAccuracy').textContent = done.length > 0
+    ? Math.round((done.filter(function(p){ return p.mult>=2; }).length / done.length)*100) + '%'
+    : '0%';
+  document.getElementById('statMembers').textContent = totalUsers;
+  document.getElementById('statLive').textContent = live.length;
+  // Trend chart
+  renderTrendChart();
+  // Dashboard predictions
+  var dashPred = document.getElementById('dashPredictions');
+  var all = live.concat(upc).slice(0,6);
+  if(all.length===0){ dashPred.innerHTML='<p style="color:#8899bb;text-align:center;padding:40px">No predictions yet</p>'; return; }
+  dashPred.innerHTML = all.map(function(p){
+    var badge = p.status==='live'?'<span class="pred-badge live">LIVE</span>':'<span class="pred-badge upcoming">UPCOMING</span>';
+    return '<div class="pred-card"><div class="pred-header"><span>'+p.round+'</span>'+badge+'</div><div class="pred-mult">'+p.mult+'x</div><div class="pred-detail"><span>'+p.time+'</span><span style="color:#f59e0b">Predicted</span></div></div>';
+  }).join('');
+}
+
+function renderTrendChart(){
+  var rounds = DB.rounds.slice(-20);
+  var chart = document.getElementById('trendChart');
+  if(rounds.length===0){ chart.innerHTML='<p style="color:#8899bb;text-align:center;padding:40px">No round data yet</p>'; return; }
+  var maxMult = Math.max.apply(null, rounds.map(function(r){ return r.mult; }));
+  chart.innerHTML = rounds.map(function(r,i){
+    var h = Math.max(3, (r.mult/maxMult)*130);
+    return '<div class="chart-bar" style="height:'+h+'px" title="'+r.round+': '+r.mult+'x"><span class="bar-label">'+(i%5===0?r.round.slice(-4):'')+'</span></div>';
+  }).join('');
+}
+
+// ============ PREDICTIONS ============
+var _predTab = 'all';
+function switchPredTab(tab, el){
+  _predTab = tab;
+  document.querySelectorAll('.tab-bar .tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  if(el) el.classList.add('active');
+  renderPredictions(tab);
+}
+
+function renderPredictions(filter){
+  var grid = document.getElementById('predGrid');
+  var list = filter==='all' ? DB.predictions : DB.predictions.filter(function(p){ return p.status===filter; });
+  if(list.length===0){ grid.innerHTML='<p style="color:#8899bb;text-align:center;padding:40px">No predictions found</p>'; return; }
+  grid.innerHTML = list.map(function(p){
+    var badge = p.status==='live'?'<span class="pred-badge live">LIVE</span>':p.status==='upcoming'?'<span class="pred-badge upcoming">UPCOMING</span>':'<span class="pred-badge done">'+p.mult+'x</span>';
+    return '<div class="pred-card"><div class="pred-header"><span>'+p.round+'</span>'+badge+'</div><div class="pred-mult">'+p.mult+'x</div><div class="pred-detail"><span>'+p.time+'</span><span>Cash out target</span></div></div>';
+  }).join('');
+}
+
+// ============ HISTORY ============
+function renderHistory(){
+  var tbody = document.getElementById('histTable');
+  var list = DB.rounds.slice().reverse();
+  tbody.innerHTML = list.map(function(r){
+    var cls = r.mult>=2 ? 'green' : 'red';
+    return '<tr><td>'+r.round+'</td><td style="font-weight:700;color:'+(r.mult>=2?'#10b981':'#ef4444')+'">'+r.mult+'x</td><td>'+r.time+'</td><td><span class="status-badge '+cls+'">'+(r.mult>=2?'WIN':'LOSS')+'</span></td></tr>';
+  }).join('');
+  // Histogram chart
+  var chart = document.getElementById('histChart');
+  var mults = DB.rounds.map(function(r){ return Math.floor(r.mult); });
+  var bins = {};
+  mults.forEach(function(m){ bins[m]=(bins[m]||0)+1; });
+  var maxCount = Math.max.apply(null, Object.values(bins));
+  chart.innerHTML = Object.keys(bins).sort(function(a,b){ return a-b; }).map(function(k){
+    var h = Math.max(3, (bins[k]/maxCount)*130);
+    return '<div class="chart-bar" style="height:'+h+'px;background:linear-gradient(to top,#3b82f6,#6366f1)" title="'+k+'x: '+bins[k]+' rounds"><span class="bar-label">'+k+'x</span></div>';
+  }).join('');
+}
+
+// ============ SIGNALS ============
+function renderSignals(){
+  var grid = document.getElementById('signalsGrid');
+  var list = DB.signals.filter(function(s){ return s.status==='active'; });
+  if(list.length===0){ grid.innerHTML='<p style="color:#8899bb;text-align:center;padding:40px">No active signals</p>'; return; }
+  grid.innerHTML = list.map(function(s){
+    return '<div class="pred-card"><div class="pred-header"><span style="font-weight:700">'+s.title+'</span><span class="pred-badge live">ACTIVE</span></div><p style="font-size:13px;color:#8899bb;line-height:1.6">'+s.content+'</p></div>';
+  }).join('');
+}
+
+// ============ TIPS ============
+function renderTips(){
+  var grid = document.getElementById('tipsGrid');
+  var list = DB.tips;
+  if(list.length===0){ grid.innerHTML='<p style="color:#8899bb;text-align:center;padding:40px">No tips available</p>'; return; }
+  grid.innerHTML = list.map(function(t){
+    return '<div class="pred-card"><div class="pred-header"><span style="font-weight:700">'+t.title+'</span></div><p style="font-size:13px;color:#8899bb;line-height:1.6">'+t.content+'</p></div>';
+  }).join('');
+}
+
+// ============ REFER ============
+function renderRefer(){
+  var link = document.getElementById('referLink');
+  link.value = window.location.origin + '/?ref=' + currentUser;
+  var refs = DB.referrals[currentUser];
+  document.getElementById('referEarnings').textContent = '&#8377;' + ((refs?refs.length:0) * 10);
+}
+
+function copyReferral(){
+  var inp = document.getElementById('referLink');
+  inp.select(); inp.setSelectionRange(0,99999);
+  navigator.clipboard.writeText(inp.value);
+  showToast('Referral link copied!','success');
+}
+
+// ============ PROFILE ============
+function showProfile(){
+  navigate('profilePage', document.querySelector('.sidebar a'));
+  var u = DB.users[currentUser];
+  if(!u) return;
+  document.getElementById('profUser').textContent = currentUser;
+  document.getElementById('profEmail').textContent = u.email || '-';
+  document.getElementById('profPhone').textContent = u.phone || '-';
+  document.getElementById('profJoined').textContent = u.joined || '-';
+}
+
+function showChangePass(){
+  document.getElementById('changePassModal').classList.add('active');
+  document.getElementById('cpOld').value='';
+  document.getElementById('cpNew').value='';
+  document.getElementById('cpConfirm').value='';
+}
+
+function doChangePass(){
+  var u = DB.users[currentUser];
+  if(!u){ showToast('User not found','error'); return; }
+  var old = document.getElementById('cpOld').value;
+  var np = document.getElementById('cpNew').value;
+  var conf = document.getElementById('cpConfirm').value;
+  if(u.pass !== old){ showToast('Current password is wrong','error'); return; }
+  if(np.length<4){ showToast('New password must be at least 4 chars','error'); return; }
+  if(np !== conf){ showToast('Passwords do not match','error'); return; }
+  u.pass = np;
+  saveDB();
+  showToast('Password changed successfully','success');
+  closeModal('changePassModal');
+}
+
+// ============ ADMIN ============
+function adminNav(pageId, el){
+  document.querySelectorAll('#adminDashboard .page').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById(pageId).classList.add('active');
+  document.querySelectorAll('#adminSidebar a').forEach(function(a){ a.classList.remove('active'); });
+  if(el) el.classList.add('active');
+  if(pageId==='adminUsersPage') renderAdminUsers();
+  if(pageId==='adminPredictionsPage') renderAdminPredictions();
+  if(pageId==='adminSignalsPage') renderAdminSignals();
+  if(pageId==='adminTipsPage') renderAdminTips();
+  if(pageId==='adminHistoryPage') renderAdminHistory();
+  if(pageId==='adminReportsPage') renderAdminReports();
+}
+
+function refreshAdmin(){
+  renderAdminUsers();
+  renderAdminPredictions();
+  renderAdminSignals();
+  renderAdminTips();
+  renderAdminHistory();
+  renderAdminReports();
+}
+
+function renderAdminUsers(){
+  var tbody = document.getElementById('adminUsersTable');
+  var rows = Object.keys(DB.users).map(function(k){
+    var u = DB.users[k];
+    return '<tr><td>'+k+'</td><td>'+(u.email||'-')+'</td><td>'+(u.phone||'-')+'</td><td>'+(u.joined||'-')+'</td><td><span class="status-badge '+(u.active!==false?'green':'red')+'">'+(u.active!==false?'Active':'Disabled')+'</span></td><td><button class="btn btn-sm '+(u.active!==false?'btn-red':'btn-green')+'" onclick="toggleUserStatus(\''+k+'\')">'+(u.active!==false?'Disable':'Enable')+'</button></td></tr>';
+  }).join('');
+  tbody.innerHTML = rows || '<tr><td colspan="6" style="text-align:center;color:#8899bb;padding:20px">No users</td></tr>';
+}
+
+function toggleUserStatus(user){
+  if(!DB.users[user]) return;
+  DB.users[user].active = DB.users[user].active === false ? true : false;
+  saveDB();
+  renderAdminUsers();
+  showToast('User '+(DB.users[user].active?'enabled':'disabled'),'success');
+}
+
+function renderAdminPredictions(){
+  var tbody = document.getElementById('adminPredTable');
+  tbody.innerHTML = DB.predictions.map(function(p){
+    var cls = p.status==='live'?'yellow':p.status==='upcoming'?'yellow':'green';
+    return '<tr><td>'+p.round+'</td><td style="font-weight:700;color:#f59e0b">'+p.mult+'x</td><td><span class="status-badge '+cls+'">'+p.status+'</span></td><td>'+p.time+'</td><td><button class="btn btn-sm btn-red" onclick="deletePrediction('+p.id+')">Delete</button></td></tr>';
+  }).join('');
+}
+
+function showAddPrediction(){
+  _editPredId = null;
+  document.getElementById('apRound').value = 'AVI-' + new Date().toISOString().slice(2,10).replace(/-/g,'') + String(Math.floor(Math.random()*100)).padStart(2,'0');
+  document.getElementById('apMult').value = (Math.random()*5+1).toFixed(2);
+  document.getElementById('apStatus').value = 'upcoming';
+  document.getElementById('addPredModal').classList.add('active');
+}
+
+function savePrediction(){
+  var round = document.getElementById('apRound').value.trim();
+  var mult = parseFloat(document.getElementById('apMult').value);
+  var status = document.getElementById('apStatus').value;
+  if(!round||!mult){ showToast('Fill all fields','error'); return; }
+  DB.predictions.push({
+    id: Date.now(), round: round, mult: mult, status: status,
+    time: new Date().toLocaleString('en-IN')
+  });
+  saveDB();
+  closeModal('addPredModal');
+  renderAdminPredictions();
+  showToast('Prediction added','success');
+}
+
+function deletePrediction(id){
+  if(!confirm('Delete this prediction?')) return;
+  DB.predictions = DB.predictions.filter(function(p){ return p.id !== id; });
+  saveDB();
+  renderAdminPredictions();
+  showToast('Prediction deleted','success');
+}
+
+function renderAdminSignals(){
+  var tbody = document.getElementById('adminSignalsTable');
+  tbody.innerHTML = DB.signals.map(function(s){
+    return '<tr><td>'+s.title+'</td><td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+s.content+'</td><td><span class="status-badge '+(s.status==='active'?'green':'red')+'">'+s.status+'</span></td><td><button class="btn btn-sm btn-red" onclick="deleteSignal('+s.id+')">Delete</button></td></tr>';
+  }).join('');
+}
+
+function showAddSignal(){
+  _editSignalId = null;
+  document.getElementById('asTitle').value='';
+  document.getElementById('asContent').value='';
+  document.getElementById('asStatus').value='active';
+  document.getElementById('addSignalModal').classList.add('active');
+}
+
+function saveSignal(){
+  var title = document.getElementById('asTitle').value.trim();
+  var content = document.getElementById('asContent').value.trim();
+  var status = document.getElementById('asStatus').value;
+  if(!title||!content){ showToast('Fill all fields','error'); return; }
+  DB.signals.push({ id:Date.now(), title:title, content:content, status:status });
+  saveDB();
+  closeModal('addSignalModal');
+  renderAdminSignals();
+  showToast('Signal added','success');
+}
+
+function deleteSignal(id){
+  if(!confirm('Delete this signal?')) return;
+  DB.signals = DB.signals.filter(function(s){ return s.id !== id; });
+  saveDB();
+  renderAdminSignals();
+  showToast('Signal deleted','success');
+}
+
+function renderAdminTips(){
+  var tbody = document.getElementById('adminTipsTable');
+  tbody.innerHTML = DB.tips.map(function(t){
+    return '<tr><td>'+t.title+'</td><td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+t.content+'</td><td><button class="btn btn-sm btn-red" onclick="deleteTip('+t.id+')">Delete</button></td></tr>';
+  }).join('');
+}
+
+function showAddTip(){
+  _editTipId = null;
+  document.getElementById('atTitle').value='';
+  document.getElementById('atContent').value='';
+  document.getElementById('addTipModal').classList.add('active');
+}
+
+function saveTip(){
+  var title = document.getElementById('atTitle').value.trim();
+  var content = document.getElementById('atContent').value.trim();
+  if(!title||!content){ showToast('Fill all fields','error'); return; }
+  DB.tips.push({ id:Date.now(), title:title, content:content });
+  saveDB();
+  closeModal('addTipModal');
+  renderAdminTips();
+  showToast('Tip added','success');
+}
+
+function deleteTip(id){
+  if(!confirm('Delete this tip?')) return;
+  DB.tips = DB.tips.filter(function(t){ return t.id !== id; });
+  saveDB();
+  renderAdminTips();
+  showToast('Tip deleted','success');
+}
+
+function renderAdminHistory(){
+  var tbody = document.getElementById('adminHistoryTable');
+  tbody.innerHTML = DB.rounds.slice().reverse().map(function(r){
+    return '<tr><td>'+r.round+'</td><td style="font-weight:700;color:'+(r.mult>=2?'#10b981':'#ef4444')+'">'+r.mult+'x</td><td>'+r.time+'</td></tr>';
+  }).join('');
+}
+
+function renderAdminReports(){
+  document.getElementById('adminTotalUsers').textContent = Object.keys(DB.users).length;
+  document.getElementById('adminTotalPredictions').textContent = DB.predictions.length;
+  document.getElementById('adminTotalSignals').textContent = DB.signals.length;
+  var done = DB.predictions.filter(function(p){ return p.status==='done'; });
+  document.getElementById('adminAvgAccuracy').textContent = done.length > 0
+    ? Math.round((done.filter(function(p){ return p.mult>=2; }).length / done.length)*100) + '%'
+    : '0%';
+}
+
+function updateAdminSettings(){
+  var newPass = document.getElementById('adminSetNewPass').value.trim();
+  if(!newPass){ showToast('Enter new password','error'); return; }
+  DB.adminPass = newPass;
+  saveDB();
+  document.getElementById('adminSetNewPass').value='';
+  showToast('Admin password updated','success');
+}
+
+// ============ AUTO SYNC (simulates live updates) ============
+var _autoSyncTimer = null;
+function startAutoSync(){
+  _autoSyncTimer = setInterval(function(){
+    if(currentUser || isAdmin){
+      // Simulate a new round occasionally
+      if(Math.random()<0.15){
+        var newMult = (Math.random()*8+0.5).toFixed(2);
+        DB.rounds.push({
+          round:'AVI-'+new Date().toISOString().slice(2,10).replace(/-/g,'')+String(Math.floor(Math.random()*100)).padStart(2,'0'),
+          mult: parseFloat(newMult),
+          time: new Date().toLocaleString('en-IN')
+        });
+        if(DB.rounds.length>50) DB.rounds = DB.rounds.slice(-50);
+        saveDB();
+      }
+      // Occasionally move a prediction to done
+      var livePreds = DB.predictions.filter(function(p){ return p.status==='live'; });
+      if(livePreds.length>0 && Math.random()<0.1){
+        var idx = Math.floor(Math.random()*livePreds.length);
+        var pred = livePreds[idx];
+        pred.status = 'done';
+        // Add to rounds if not already
+        if(!DB.rounds.find(function(r){ return r.round===pred.round; })){
+          DB.rounds.push({ round:pred.round, mult:pred.mult, time:new Date().toLocaleString('en-IN') });
+        }
+        saveDB();
+      }
+      if(currentUser) refreshDashboard();
+      if(isAdmin) renderAdminReports();
+    }
+  }, 8000);
+}
+
+// ============ INIT ============
+loadDB();
+
+// Handle referral in URL
+var urlParams = new URLSearchParams(window.location.search);
+var refCode = urlParams.get('ref');
+if(refCode && DB.users[refCode]){
+  document.getElementById('regRef').value = refCode;
+}
+
+// Check for saved session
+var saved = localStorage.getItem('ishuxwin_session');
+if(saved && DB.users[saved]){ enterDashboard(saved); }
+
+startAutoSync();
+
+// Hide loading screen
+setTimeout(function(){
+  document.getElementById('loadingScreen').classList.add('hidden');
+}, 2500);
+
+// Admin login button (accessible from login page)
+var adminBtn = document.createElement('button');
+adminBtn.className = 'admin-login-btn';
+adminBtn.textContent = 'ADMIN LOGIN';
+adminBtn.onclick = openAdminLogin;
+document.body.appendChild(adminBtn);
+
+console.log('ISHU X WIN v1.0 - DEV BY ISHU');
+console.log('Admin login: admin / ' + DB.adminPass);
+</script>
+</body>
+</html>
